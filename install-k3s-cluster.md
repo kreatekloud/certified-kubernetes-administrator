@@ -5,12 +5,11 @@ This guide walks through setting up a **multi-node Kubernetes cluster** using **
 
 ## 🧠 Architecture
 Windows 11
-├── WSL (Ubuntu - CLI tools)
-├── Multipass (VMs)
-│ ├── master (control plane)
-│ ├── worker1
-│ └── worker2
-└── K3s Cluster (inside VMs)
+|-- WSL (Ubuntu - CLI tools)
+| |-- master (control plane)
+| |-- worker1
+| |-- worker2
+|--- K3s Cluster (inside VMs)
 
 ---
 

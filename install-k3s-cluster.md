@@ -2,7 +2,6 @@
 
 This guide walks through setting up a **multi-node Kubernetes cluster** using **K3s** on a Windows 11 laptop using WSL and Multipass.
 
----
 
 ## 🧠 Architecture
 Windows 11
@@ -13,7 +12,6 @@ Windows 11
 │ └── worker2
 └── K3s Cluster (inside VMs)
 
----
 
 ## ⚙️ Prerequisites
 
@@ -21,7 +19,6 @@ Windows 11
 - Admin access
 - Minimum 16 GB RAM (recommended)
 
----
 
 ## 🪟 Step 1: Install WSL
 

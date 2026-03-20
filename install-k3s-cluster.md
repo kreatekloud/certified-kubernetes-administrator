@@ -12,6 +12,7 @@ Windows 11
 │ └── worker2
 └── K3s Cluster (inside VMs)
 
+---
 
 ## ⚙️ Prerequisites
 

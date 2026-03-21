@@ -2,13 +2,9 @@
 
 This guide walks through installing ArgoCD on a K3s cluster and accessing its UI locally.
 
----
-
 ## 🧠 What is Argo CD?
 
 Argo CD is a GitOps continuous delivery tool for Kubernetes. It helps you deploy and manage applications using Git as the source of truth.
-
----
 
 ## ⚙️ Prerequisites
 
@@ -75,7 +71,7 @@ for example: argocd-server  NodePort <cluster-IP>  Ports <80:30664>
 
 Open browser:
 ```
-[https://localhost:8080](https://172.27.111.151:30664)
+https://172.27.111.151:30664
 ```
 
 ## 🔑 Step 6: Get Initial Admin Password
@@ -163,7 +159,7 @@ For production, configure proper TLS
 ## 📚 References
 
 Argo CD Releases
-- [Argo CD CLI Documentation]([https://argo-cd.readthedocs.io/en/stable/](https://argo-cd.readthedocs.io/en/stable/getting_started/#2-download-argo-cd-cli))
+- [Argo CD CLI Documentation]((https://argo-cd.readthedocs.io/en/stable/getting_started/#2-download-argo-cd-cli))
 - [Argo CD GitHub Releases](https://github.com/argoproj/argo-cd/releases)
 
 

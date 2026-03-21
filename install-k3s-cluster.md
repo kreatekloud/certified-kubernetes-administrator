@@ -2,8 +2,6 @@
 
 This guide walks through setting up a **multi-node Kubernetes cluster** using **K3s** on a Windows 11 laptop using WSL and Multipass.
 
-
-## 🧠 Architecture
 ## 🧠 Architecture
 
 ```text

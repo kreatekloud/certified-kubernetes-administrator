@@ -160,7 +160,7 @@ For production, configure proper TLS
 ## 📚 References
 
 Argo CD Releases
-- [Argo CD CLI Documentation]((https://argo-cd.readthedocs.io/en/stable/getting_started/#2-download-argo-cd-cli))
+- [Argo CD CLI Documentation](https://argo-cd.readthedocs.io/en/stable/getting_started/#2-download-argo-cd-cli)
 - [Argo CD GitHub Releases](https://github.com/argoproj/argo-cd/releases)
 
 

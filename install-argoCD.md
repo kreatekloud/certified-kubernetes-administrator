@@ -114,7 +114,8 @@ The Argo CD CLI allows you to interact with Argo CD from the command line.
 #### 👉 On Linux / WSL
 
 ```
-curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+wget https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+mv argocd-linux-amd64 argocd
 ```
 
 ## 🔐 Step 2: Make Binary Executable

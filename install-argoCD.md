@@ -71,7 +71,7 @@ for example: argocd-server  NodePort <cluster-IP>  Ports <80:30664>
 
 Open browser:
 ```
-https://172.27.111.151:30664
+https://172.27.111.151:32632
 ```
 
 ## 🔑 Step 6: Get Initial Admin Password
@@ -132,17 +132,17 @@ argocd version
 ```
 ## 🔑 Login to Argo CD using CLI
 
-Make sure port-forward is running:
+Change Service Type to NodePort:
 ```
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubect edit svc argocd-server -n argocd
 ```
 ## 🔐 Step 5: Login
 ```
-argocd login 172.27.111.15
+argocd login 172.27.111.151:32632
 ```
 ## 🔓 If you face SSL warning (expected in local setup)
 ```
-argocd login 172.27.111.15 --insecure
+argocd login 172.27.111.151:32632 --insecure
 ```
 ## 📋 Step 6: List Applications
 ```

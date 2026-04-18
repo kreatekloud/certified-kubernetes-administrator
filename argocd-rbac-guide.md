@@ -97,7 +97,7 @@ The new users can now log in to the ArgoCD web UI or CLI using their respective 
 Before handing over credentials, it is a best practice to verify that your RBAC policies are working exactly as intended. ArgoCD provides a built-in `can-i` utility under the `admin settings rbac` command to test permissions without needing to log in as each user.
 
 The syntax for testing is:
-`argocd admin settings rbac can-i <action> <resource> <project>/<object> --sub <username>`
+`argocd account can-i <action> <resource> <project>/<object>`
 
 Here are practical examples to test the permissions of our two new users against a sample application called `kreatekloud-app` in the `default` project.
 
@@ -105,43 +105,43 @@ Here are practical examples to test the permissions of our two new users against
 
 The `devopsadmin` user has full administrative rights. We expect all of these commands to return `yes`.
 
-**1. Can the admin sync an application?**
+**1. Can the admin create clusters?**
 ```
-argocd admin settings rbac can-i sync applications 'default/kreatekloud-app' --sub devopsadmin
+argocd account can-i create clusters '*'
 ```
 Expected Output: yes
 
-**2. Can the admin create a new cluster connection?**
+**2. Can the admin delete cluster connection?**
 ```
-argocd admin settings rbac can-i create clusters '*' --sub devopsadmin
+argocd account can-i delete clusters '*'
 ```
 Expected Output: yes
 
 ### Testing developer (role:readonly)
 The developer user is restricted to read-only actions. They should be able to view resources but not mutate or sync them.
 
-**1. Can the developer view (get) an application's status?**
+**1. Can the developer view (get) cluster details?**
 ```
-argocd admin settings rbac can-i get applications 'default/kreatekloud-app' --sub developer
+argocd account can-i get clusters '*'
 ```
 Expected Output: yes
 
 **2. Can the developer view logs for an application?**
 ```
-argocd admin settings rbac can-i get logs 'default/kreatekloud-app' --sub developer
+argocd account can-i get logs  '*'
 ```
 Expected Output: yes
 
-**3. Can the developer sync (deploy) an application?**
+**3. Can the developer create cluster?**
 
 ```
-argocd admin settings rbac can-i sync applications 'default/kreatekloud-app' --sub developer
+argocd account can-i create clusters '*'
 ```
 Expected Output: no
 
-**4. Can the developer add a new Git repository?**
+**4. Can the developer delete cluster?**
 ```
-argocd admin settings rbac can-i create repositories '*' --sub developer
+argocd account can-i delete clusters '*'
 ```
 Expected Output: no
 

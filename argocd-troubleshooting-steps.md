@@ -69,6 +69,17 @@ sudo systemctl restart k3s
 Enter username and password like admin/devops@123 after successful login you should be able to run the argocd commands
 ```
 argocd login 172.31.252.59:32632
+
+root@k3s-master:~# argocd login 172.31.252.59:32632
+WARNING: server certificate had error: error creating connection: tls: failed to verify certificate: x509: cannot validate certificate for 172.31.252.59 because it doesn't contain any IP SANs. Proceed insecurely (y/n)? y
+Username: admin
+Password: 
+'admin:login' logged in successfully
+Context '172.31.252.59:32632' updated
+```
+```
+root@k3s-master:~# argocd account can-i create clusters '*'
+yes
 ```
 To login to UI, you can go to any browser and enter the above address and then enter the username and password.
 

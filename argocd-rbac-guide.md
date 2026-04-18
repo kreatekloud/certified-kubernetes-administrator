@@ -125,16 +125,24 @@ The developer user is restricted to read-only actions. They should be able to vi
 argocd admin settings rbac can-i get applications 'default/kreatekloud-app' --sub developer
 ```
 Expected Output: yes
+
 **2. Can the developer view logs for an application?**
 ```
 argocd admin settings rbac can-i get logs 'default/kreatekloud-app' --sub developer
 ```
 Expected Output: yes
+
 **3. Can the developer sync (deploy) an application?**
-`argocd admin settings rbac can-i sync applications 'default/kreatekloud-app' --sub developer`
+
+```
+argocd admin settings rbac can-i sync applications 'default/kreatekloud-app' --sub developer
+```
 Expected Output: no
+
 **4. Can the developer add a new Git repository?**
-`argocd admin settings rbac can-i create repositories '*' --sub developer`
+```
+argocd admin settings rbac can-i create repositories '*' --sub developer
+```
 Expected Output: no
 
 Pro-Tip: If you ever get an unexpected no, double-check the argocd-rbac-cm ConfigMap for typos in the policy.csv mapping or ensure the target project explicitly permits the resource you are testing.

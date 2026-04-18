@@ -30,14 +30,12 @@ Run the following `kubectl` commands:
 
 ### Define the 'devopsadmin' user
 ```
-kubectl patch configmap argocd-cm -n argocd --type merge -p \
-'{"data":{"accounts.devopsadmin": "apiKey, login"}}'
+kubectl patch configmap argocd-cm -n argocd --type merge -p '{"data":{"accounts.devopsadmin": "apiKey, login"}}'
 ```
 
 ### Define the 'developer' user
 ```
-kubectl patch configmap argocd-cm -n argocd --type merge -p \
-'{"data":{"accounts.developer": "apiKey, login"}}'
+kubectl patch configmap argocd-cm -n argocd --type merge -p '{"data":{"accounts.developer": "apiKey, login"}}'
 ```
 Note: ArgoCD automatically detects changes to this ConfigMap; no pod restarts are required.
 
@@ -47,8 +45,7 @@ By default, new users have no permissions. We must explicitly map our newly crea
 
 Run the following command to patch the RBAC ConfigMap:
 ```
-kubectl patch configmap argocd-rbac-cm -n argocd --type merge -p \
-'{"data":{"policy.csv": "g, devopsadmin, role:admin\ng, developer, role:readonly"}}'
+kubectl patch configmap argocd-rbac-cm -n argocd --type merge -p '{"data":{"policy.csv": "g, devopsadmin, role:admin\ng, developer, role:readonly"}}'
 ```
 Understanding the Policy Format
 The policy.csv entries follow the format: g, <user_or_group>, <role>
@@ -64,21 +61,19 @@ Newly created users do not have a password by default and cannot log in until on
 ```
 argocd login <ARGOCD_SERVER> --username admin --password <YOUR_ADMIN_PASSWORD>
 
-Example: argocd login 172.31.252.59:32632 --insecure
+Example: argocd login 172.31.252.59:32632 --username developer --password devops@123 --insecure
 ```
 ### Update the password for devopsadmin:
 ```
-argocd account update-password \
-  --account devopsadmin \
-  --new-password <NEW_DEVOPS_PASSWORD> \
-  --current-password <YOUR_ADMIN_PASSWORD>
-  ```
+argocd account update-password --account devopsadmin --new-password <NEW_DEVOPS_PASSWORD> --current-password <YOUR_ADMIN_PASSWORD>
+
+Example: argocd account update-password --account devopsadmin --new-password devops@123 --current-password devops@123
+```
 ### Update the password for developer:
 ```
-argocd account update-password \
-  --account developer \
-  --new-password <NEW_DEVELOPER_PASSWORD> \
-  --current-password <YOUR_ADMIN_PASSWORD>
+argocd account update-password --account developer --new-password <NEW_DEVELOPER_PASSWORD> --current-password <YOUR_ADMIN_PASSWORD>
+
+Example: argocd account update-password --account developer --new-password devops@123 --current-password devops@123
 ```
 ## Step 4: Verification
 To verify that the accounts have been created and the capabilities are correct, run the following CLI command:

@@ -64,5 +64,13 @@ sudo systemctl restart containerd
 sudo systemctl restart k3s
 ```
 
+## Login to argocd using CLI and UI
+
+Enter username and password like admin/devops@123 after successful login you should be able to run the argocd commands
+```
+argocd login 172.31.252.59:32632
+```
+To login to UI, you can go to any browser and enter the above address and then enter the username and password.
+
 
 
